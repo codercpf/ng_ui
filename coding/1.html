@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<title>AngularJS_UI_Bootstrap_Accordion</title>
 
-	<script src="../angular-1.5.3/angular.min.js"></script>
+
+    <script src="../angular-1.5.3/angular.min.js"></script>
     <script src="../angular-1.5.3/angular-animate.min.js"></script>
     <script src="../angular-1.5.3/angular-touch.min.js"></script>
     <script src="../angular-1.5.3/angular-sanitize.js"></script>
@@ -12,7 +13,6 @@
     <script src="assets/plunker.js"></script>
     <script src="assets/app.js"></script>
     <link href="../bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
 </head>
 <body>
 	<div ng-controller="AccordionDemoCtrl">
@@ -78,7 +78,34 @@
   </uib-accordion>
 </div>
 
-	<script type="text/javascript" src="accordion.js"></script>
+	<script type="text/javascript">
+		angular.module('ui.bootstrap.demo').controller('AccordionDemoCtrl', function ($scope) {
+  $scope.oneAtATime = true;
 
+  $scope.groups = [
+    {
+      title: 'Dynamic Group Header - 1',
+      content: 'Dynamic Group Body - 1'
+    },
+    {
+      title: 'Dynamic Group Header - 2',
+      content: 'Dynamic Group Body - 2'
+    }
+  ];
+
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
+
+  $scope.status = {
+    isCustomHeaderOpen: false,
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
+});
+	</script>
 </body>
 </html>
