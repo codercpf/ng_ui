@@ -1,0 +1,1 @@
+files with the -tpls in their name have bootstrap-specific templates bundled with directives. For people who want to take all the directives and don't need to customize anything the solution is to grab a file named ui-bootstrap-tpls-[version].min.js.
