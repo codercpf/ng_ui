@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS_UI_Bootstrap_Accordion</title>
+
+	<script src="../../angular-1.5.3/angular.min.js"></script>
+    <script src="../../angular-1.5.3/angular-animate.min.js"></script>
+    <script src="../../angular-1.5.3/angular-touch.min.js"></script>
+    <script src="../../angular-1.5.3/angular-sanitize.js"></script>
+    <script src="../../ui-bootstrap-tpls-1.3.3.js"></script>
+
+    <script src="../assets/plunker.js"></script>
+    <script src="../assets/app.js"></script>
+    <link href="../../bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+	<div ng-controller="AlertDemoCtrl">
+		<script type="text/ng-template" id="alert.html">
+			<div class="alert" style="background-color:#fa39c3;color:white" role="alert">
+				<div ng-transclude>				
+				</div>
+			</div>
+		</script>
+
+		<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+		<uib-alert template-url="alert.html">A happy alert!</uib-alert>
+		<button type="button" class="btn btn-default" ng-click="addAlert()">Add Alert</button>
+	</div>
+
+	<script type="text/javascript" src="alert.js"></script>
+	
+</body>
+</html>
