@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS_UI_Bootstrap</title>
+
+	<script src="../../angular-1.5.3/angular.min.js"></script>
+    <script src="../../angular-1.5.3/angular-animate.min.js"></script>
+    <script src="../../angular-1.5.3/angular-touch.min.js"></script>
+    <script src="../../angular-1.5.3/angular-sanitize.js"></script>
+    <script src="../../ui-bootstrap-tpls-1.3.3.js"></script>
+
+    <script src="../assets/plunker.js"></script>
+    <script src="../assets/app.js"></script>
+    <link href="../../bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+	<div ng-controller="TimepickerDemoCtrl">
+		<uib-timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+
+		<pre class="alert alert-info">Time is: {{mytime | date:'shortTime'}}</pre>
+
+		<div class="row">
+			<div class="col-xs-6">
+				Hours step is:
+				<select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+			</div>
+			<div class="col-xs-6">
+				Minutes step is:
+				<select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+			</div>
+		</div>
+
+		<hr>
+		<button type="button" class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+		<button type="button" class="btn btn-default" ng-click="update()">set to 14:00</button>
+		<button type="button" class="btn btn-danger" ng-click="clear()">Clear</button>
+	</div>
+
+	<script type="text/javascript" src="timepicker.js"></script>	
+</body>
+</html>
