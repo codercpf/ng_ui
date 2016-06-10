@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS_UI_Bootstrap</title>
+
+	<script src="../../angular-1.5.3/angular.min.js"></script>
+    <script src="../../angular-1.5.3/angular-animate.min.js"></script>
+    <script src="../../angular-1.5.3/angular-touch.min.js"></script>
+    <script src="../../angular-1.5.3/angular-sanitize.js"></script>
+    <script src="../../ui-bootstrap-tpls-1.3.3.js"></script>
+
+    <script src="../assets/plunker.js"></script>
+    <script src="../assets/app.js"></script>
+    <link href="../../bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+	<div ng-controller="ProgressDemoCtrl">
+		<h3>Static</h3>
+		<div class="row">
+			<div class="col-sm-4"><uib-progressbar value="55"></uib-progressbar></div>
+			<div class="col-sm-4"><uib-progressbar value="22" class="progress-striped" type="warning"></uib-progressbar></div>
+			<div class="col-sm-4"><uib-progressbar value="166" class="progress-striped active" type="danger" max="200"><i>166 / 200</i></uib-progressbar></div>
+		</div>
+
+		<hr>
+		<h3>Dynamic <button type="button" class="btn btn-sm btn-primary" ng-click="random()">Randomize</button></h3>
+		<uib-progressbar max="max" value="dynamic"><span style="color:white; white-space: nowrap;">{{dynamic}} / {{max}}</span></uib-progressbar>
+
+		<hr>
+		<small><em>No animation</em></small>
+		<uib-progressbar animate="false" value="dynamic" type="success"><b>{{dynamic}}%</b></uib-progressbar>
+
+		<hr>
+		<small><em>Object (changes type based on value)</em></small>
+		<uib-progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch Out !!!</i></uib-progressbar>
+
+		<hr>
+		<h3>Stacked <button type="button" class="btn btn-sm btn-primary" ng-click="randomStacked()">Randomize</button></h3>
+		<uib-progress>
+			<uib-bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></uib-bar>
+		</uib-progress>
+	</div>	
+
+	<script type="text/javascript" src="progressbar.js"></script>
+</body>
+</html>
