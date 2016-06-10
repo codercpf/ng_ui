@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJS_UI_Bootstrap</title>
+
+	<script src="../../angular-1.5.3/angular.min.js"></script>
+    <script src="../../angular-1.5.3/angular-animate.min.js"></script>
+    <script src="../../angular-1.5.3/angular-touch.min.js"></script>
+    <script src="../../angular-1.5.3/angular-sanitize.js"></script>
+    <script src="../../ui-bootstrap-tpls-1.3.3.js"></script>
+
+    <script src="../assets/plunker.js"></script>
+    <script src="../assets/app.js"></script>
+    <link href="../../bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+ 	<div ng-controller="DateParserDemoCtrl">
+		<h4>Formatting Codes Playground</h4>
+		<p class="form-group">
+			<label>Define your format</label>
+			<input type="text" ng-model="format" class="form-control">
+		</p>
+		<p class="form-group">
+			<label>Result</label>
+			<input type="text" ng-model="date" class="form-control" uib-datepicker-popup="{{format}}">
+		</p>
+	</div>
+
+	<script type="text/javascript" src="dateparser.js"></script>
+
+</body>
+</html>
